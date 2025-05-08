@@ -47,6 +47,56 @@ public class AdminJardin{
     }
     
     
+    public void borrar(String[] persona, String tipo) throws IOException{
+        String nomb = persona[0];
+        String apel = persona[1];
+        String dat1 = persona[2];
+        String dat2 = persona[3];
+        String j="";
+        switch(tipo){
+            case "Alumno":
+                j="tipo:Alumno/tipo;nomb:"+nomb+"/nomb;apel:"+apel+"/apel;edad:"+dat1+"/edad;sala:"+dat2+"/sala";
+                for(int i=0;i<alumnos.size();i++){
+                    if((alumnos.get(i).getNombre().equals(persona[0]))&&(alumnos.get(i).getApellido().equals(persona[1]))&&(alumnos.get(i).getEdad() == Integer.parseInt(persona[2]))){
+                        alumnos.remove(i);
+                    }
+                }
+                break;
+            case "Docente":
+                j = "tipo:Docente/tipo;nomb:"+nomb+"/nomb;apel:"+apel+"/apel;dire:"+dat1+"/dire;sala:"+dat2+"/sala";
+                for(int i=0;i<docentes.size();i++){
+                    if((docentes.get(i).getNombre().equals(persona[0]))&&(docentes.get(i).getApellido().equals(persona[1]))&&(docentes.get(i).getDireccion().equals(persona[2]))){
+                        docentes.remove(i);
+                    }
+                }
+                break;
+            case "No docente":
+                j = "tipo:No docente/tipo;nomb:"+nomb+"/nomb;apel:"+apel+"/apel;dire:"+dat1+"/dire;cate:"+dat2+"/cate";
+                for(int i=0;i<nodocentes.size();i++){
+                    if((nodocentes.get(i).getNombre().equals(persona[0]))&&(nodocentes.get(i).getApellido().equals(persona[1]))&&(nodocentes.get(i).getDireccion().equals(persona[2]))){
+                        nodocentes.remove(i);
+                        
+                    }
+                }
+        }
+        for(int i=0;i<datosPersonas.size();i++){
+            if((datosPersonas.get(i).equals(j)) || (datosPersonas.get(i).equals((j)+"/n"))){
+                datosPersonas.remove(i);
+            }
+        }
+        
+        ManejoArchivos archivos = new ManejoArchivos();
+        archivos.guardarDatos(datosPersonas);
+        datosPersonas.clear();
+        alumnos.clear();
+        docentes.clear();
+        nodocentes.clear();
+        initDatos();
+        
+        System.out.println("BORRADO COMPLETADO");
+        
+    }
+    
     public void AgregarAlumno(Alumno a) {
         alumnos.add(a);
     }

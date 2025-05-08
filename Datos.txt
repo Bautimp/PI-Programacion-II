@@ -1,9 +1,1 @@
-tipo:Alumno/tipo;nomb:Juan Ignacio/nomb;apel:García/apel;edad:5/edad;sala:Sala 2/sala
-tipo:Docente/tipo;nomb:Carlos/nomb;apel:Rodriguez/apel;dire:Illia 2022/dire;sala:Sala 1/sala
-tipo:No docente/tipo;nomb:Victor Hugo/nomb;apel:Sanchez/apel;dire:Miguelete 1010/dire;cate:Maestranza/cate
-tipo:Docente/tipo;nomb:Alberto/nomb;apel:Sanchez/apel;dire:Chacabuco 123/dire;sala:Sala 2/sala
-tipo:Docente/tipo;nomb:Gustavo/nomb;apel:Pantano/apel;dire:Mitre 12/dire;sala:Sala 2/sala
-tipo:Alumno/tipo;nomb:Roberto/nomb;apel:Iodio/apel;edad:3/edad;sala:Sala 3/sala
-tipo:No docente/tipo;nomb:Pedro/nomb;apel:Aznar/apel;dire:Caseros 100/dire;cate:Administrativo/cate
-tipo:No docente/tipo;nomb:Leonardo/nomb;apel:Alaniz/apel;dire:Sucre 123/dire;cate:Maestranza/cate
-tipo:No docente/tipo;nomb:Luquitas/nomb;apel:Rodriguez/apel;dire:Corrientes 3200/dire;cate:Maestranza/cate
+tipo:Alumno/tipo;nomb:José José/nomb;apel:Rodriguez/apel;edad:9/edad;sala:Sala 2/sala
