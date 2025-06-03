@@ -1,15 +1,13 @@
-// author: Bautista Montes
 package Interfaz;
 import javax.swing.JFrame;
-import Logica.AdminJardin;
+import Logica.Administracion;
 import java.io.IOException;
 
 public class Main {
-
-    public static void main(String[] args) throws IOException {
-        AdminJardin admin = new AdminJardin();
+    public static void main(String[] args) {
+        Administracion admin = new Administracion();
         Principal p = new Principal();
-        
+
         JFrame f = new JFrame ("Jardín Sol");
         f.add(p);
         f.setSize(425, 380);
@@ -17,5 +15,5 @@ public class Main {
         f.setVisible(true);
         admin.initDatos();
     }
-    
+
 }

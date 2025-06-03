@@ -1,1 +1,0 @@
-tipo:Alumno/tipo;nomb:José José/nomb;apel:Rodriguez/apel;edad:9/edad;sala:Sala 2/sala

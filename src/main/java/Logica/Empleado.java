@@ -1,23 +1,9 @@
-/*
- * @author Bautista M
- */
 package Logica;
 
-public class Empleado extends Persona{
-    private String direccion;
-
-    public Empleado(String nombre, String apellido, String direccion, String es_un) {
-        super(nombre, apellido, es_un);
-        this.direccion = direccion;
+public abstract class Empleado extends Persona{
+    /*Atributos*/
+    /*Métodos*/
+    public Empleado(String nombre, String apellido, String esUn, String direccion, String dato2) {
+        super(nombre, apellido, esUn, direccion, dato2);
     }
-
-    
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-    
 }

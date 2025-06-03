@@ -1,22 +1,20 @@
-/*
- * @author Bautista M
- */
 package Logica;
 
-public class Persona {
+public abstract class Persona {
+    /*Atributos*/
     private String nombre;
     private String apellido;
-    private String es_un;
-    
-   public Persona(){
-       this.nombre = "Indefinido";
-       this.apellido = "Indefinido";
-       this.es_un = "Indefinido";
-   }
-    public Persona(String nombre, String apellido, String es_un) {
+    private String tipo;
+    private String dato1; // Puede ser edad (Alumno) o direccion (Empleado)
+    private String dato2; // Puede ser sala (Alumno, Docente) o categoria (NoDocente)
+    /*Métodos*/
+    public Persona(){}
+    public Persona(String nombre, String apellido, String tipo, String dato1, String dato2) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.es_un = es_un;
+        this.tipo = tipo;
+        this.dato1 = dato1;
+        this.dato2 = dato2;
     }
     public String getNombre() {
         return nombre;
@@ -30,11 +28,22 @@ public class Persona {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    public String getEs_un() {
-        return es_un;
+    public String getTipo() {
+        return tipo;
     }
-    public void setEs_un(String es_un) {
-        this.es_un = es_un;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
-    
+    public String getDato1() {
+        return dato1;
+    }
+    public void setDato1(String dato1) {
+        this.dato1 = dato1;
+    }
+    public String getDato2() {
+        return dato2;
+    }
+    public void setDato2(String dato2) {
+        this.dato2 = dato2;
+    }
 }
