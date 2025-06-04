@@ -1,14 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package Interfaz;
 import Logica.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -508,7 +501,7 @@ public class Principal extends javax.swing.JPanel {
         if ((PersonaTipo.getSelectedItem() == null) || ("".equals(PersonaNombre.getText())) || ("".equals(PersonaApellido.getText()))) {
             System.out.println("FALTA NOMBRE // APELLIDO // TIPO");
 
-            //Control de los datos segun el tipo, si no entra en el if, hace que la variable sinerror sea 1
+            //Control de los datos según el tipo, si no entra en el if, hace que la variable sinerror sea 1
         } else {
             switch (PersonaTipo.getSelectedItem().toString()) {
                 case "Alumno":
@@ -659,7 +652,7 @@ public class Principal extends javax.swing.JPanel {
         // TODO add your handling code here:
         Administracion admin = new Administracion();
         MuestraFiltroSala.isSelected();
-        if(MuestraFiltroSala.isSelected()==true){
+        if(MuestraFiltroSala.isSelected()){
             admin.ordenarPersonas(1);
         }else{
             admin.ordenarPersonas(0);
@@ -674,13 +667,18 @@ public class Principal extends javax.swing.JPanel {
 
         if(TablaMuestra.getSelectedRow()==-1){
             System.out.println("Falta seleccionar una persona");
+
         }else{
             for(int i=1; i<5; i++){
                 datosPersonaEliminar[i] = TablaMuestra.getModel().getValueAt(TablaMuestra.getSelectedRow(), i-1).toString();
             }
             try {
                 System.out.println(datosPersonaEliminar[0] + " " + datosPersonaEliminar[1] + " " + datosPersonaEliminar[2] + " " + datosPersonaEliminar[3] + " " + datosPersonaEliminar[4]);
-                admin.eliminarPersona(datosPersonaEliminar);
+                if(admin.compararPersona(datosPersonaEliminar)==null){
+                    System.out.println("No se encontró la persona a eliminar");
+                }else{
+                    admin.eliminarPersona(admin.compararPersona(datosPersonaEliminar));
+                }
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
