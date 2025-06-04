@@ -25,31 +25,35 @@ public class Administracion {
         guardarDatos();
     }
 
-    public String[] personaToString(Persona persona) {
-        String[] datosPersona = new String[5];
-        datosPersona[0] = persona.getTipo();
-        datosPersona[1] = persona.getNombre();
-        datosPersona[2] = persona.getApellido();
-        datosPersona[3] = persona.getDato1();
-        datosPersona[4] = persona.getDato2();
-        return datosPersona;
-    }
+    public Persona compararPersona(String[] datosPersona){
+        for (Persona persona : personas) {
+            if ((persona.getTipo()).equals(datosPersona[0]) &&
+                (persona.getNombre()).equals(datosPersona[1]) &&
+                (persona.getApellido()).equals(datosPersona[2]) &&
+                (persona.getDato1()).equals(datosPersona[3]) &&
+                (persona.getDato2()).equals(datosPersona[4])){
 
-    public void eliminarPersona(String[] datosPersona) {
-        for(int i = 0; i < personas.size(); i++){
-            if((personas.get(i).getTipo().equals(datosPersona[0])) && (personas.get(i).getNombre().equals(datosPersona[1])) && (personas.get(i).getApellido().equals(datosPersona[2])) && (personas.get(i).getDato1().equals(datosPersona[3])) && (personas.get(i).getDato2().equals(datosPersona[4]))) {
-                personas.remove(personas.get(i));
+                return persona;
             }
         }
+        return null;
+    }
+
+    public void eliminarPersona(Persona persona) {
+        personas.remove(persona);
         guardarDatos();
     }
 
     public void eliminarDuplicados() {
         for (int i = 0; i < personas.size(); i++) {
-            for (int j = 0; j < personas.size(); j++) {
-                if ((i != j) && (personas.get(i).getTipo().equals(personas.get(j).getTipo())) && (personas.get(i).getNombre().equals(personas.get(j).getNombre())) && (personas.get(i).getApellido().equals(personas.get(j).getApellido())) && (personas.get(i).getDato1().equals(personas.get(j).getDato1())) && (personas.get(i).getDato2().equals(personas.get(j).getDato2()))) {
-                    String[] eliminarPersona = personaToString(personas.get(j));
-                    eliminarPersona(eliminarPersona);
+            for (int j = i + 1; j < personas.size(); j++) {
+                if ((personas.get(i).getTipo()).equals(personas.get(j).getTipo()) &&
+                    (personas.get(i).getNombre()).equals(personas.get(j).getNombre()) &&
+                    (personas.get(i).getApellido()).equals(personas.get(j).getApellido()) &&
+                    (personas.get(i).getDato1()).equals(personas.get(j).getDato1()) &&
+                    (personas.get(i).getDato2()).equals(personas.get(j).getDato2())){
+
+                    eliminarPersona(personas.get(j));
                     j--;
                 }
             }

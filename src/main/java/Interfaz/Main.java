@@ -1,7 +1,6 @@
 package Interfaz;
 import javax.swing.JFrame;
 import Logica.Administracion;
-import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) {
