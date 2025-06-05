@@ -67,7 +67,7 @@ public class Administracion {
                 Collections.sort(personas, (p1, p2) -> p1.getApellido().compareTo(p2.getApellido()));
                 break;
             case 1: // Ordenar por Sala (Alumno, Docente) o Categoria (NoDocente)
-                Collections.sort(personas, (p1, p2) -> p1.getDato1().compareTo(p2.getDato1()));
+                Collections.sort(personas, (p1, p2) -> p1.getDato2().compareTo(p2.getDato2()));
                 break;
         }
     }
@@ -95,7 +95,7 @@ public class Administracion {
                     case "Docente":
                         personas.add(new Docente(nombre, apellido, dato1, dato2));
                         break;
-                    case "No docente":
+                    case "No Docente":
                         personas.add(new NoDocente(nombre, apellido, dato1, dato2));
                         break;
                     default:

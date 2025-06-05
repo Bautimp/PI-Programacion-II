@@ -3,13 +3,13 @@ import javax.swing.JFrame;
 import Logica.Administracion;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         Administracion admin = new Administracion();
-        Principal p = new Principal();
+        InterfazUsuario p = new InterfazUsuario();
 
         JFrame f = new JFrame ("Jardín Sol");
         f.add(p);
-        f.setSize(425, 380);
+        f.setSize(900, 550);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
         admin.initDatos();
