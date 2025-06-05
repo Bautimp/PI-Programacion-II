@@ -241,7 +241,7 @@ public class Principal extends javax.swing.JPanel {
 
         jLabel3.setText("Tipo de usuario: ");
 
-        PersonaTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alumno", "Docente", "No docente" }));
+        PersonaTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alumno", "Docente", "No Docente" }));
         PersonaTipo.setSelectedItem(null);
         PersonaTipo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         PersonaTipo.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -346,7 +346,7 @@ public class Principal extends javax.swing.JPanel {
 
         jLabel10.setText("Tipo de usuario:");
 
-        TipoMuestra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alumno", "Docente", "No docente" }));
+        TipoMuestra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alumno", "Docente", "No Docente" }));
         TipoMuestra.setSelectedItem(null);
         TipoMuestra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TipoMuestra.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -520,7 +520,7 @@ public class Principal extends javax.swing.JPanel {
                     }
                     break;
 
-                case "No docente":
+                case "No Docente":
                     if (("".equals(NoDocenteDireccion.getText())) || (NoDocenteCategoria.getSelectedItem() == null)) {
                         System.out.println("FALTAN DATOS DEL NO DOCENTE");      //HACER UNA EXCEPCION
                     } else {
@@ -541,7 +541,7 @@ public class Principal extends javax.swing.JPanel {
                     admin.agregarPersona(new Docente(PersonaNombre.getText(), PersonaApellido.getText(), DocenteSala.getSelectedItem().toString(), DocenteDireccion.getText()));
                     break;
 
-                case "No docente":
+                case "No Docente":
                     admin.agregarPersona(new NoDocente(PersonaNombre.getText(), PersonaApellido.getText(), NoDocenteCategoria.getSelectedItem().toString(), NoDocenteDireccion.getText()));
             }
         }
@@ -565,7 +565,7 @@ public class Principal extends javax.swing.JPanel {
             case "Docente":
                 PanelDocente.setVisible(true);
                 break;
-            case "No docente":
+            case "No Docente":
                 PanelNoDocente.setVisible(true);
                 break;
         }
@@ -632,7 +632,7 @@ public class Principal extends javax.swing.JPanel {
                 model.addColumn("Dirección");
                 MuestraFiltroSala.setText("Filtrar por Sala");
                 break;
-            case "No docente":
+            case "No Docente":
                 model.addColumn("Categoría");
                 model.addColumn("Dirección");
                 MuestraFiltroSala.setText("Filtrar por Categoría");
