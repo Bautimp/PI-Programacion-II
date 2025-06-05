@@ -954,12 +954,12 @@ public class InterfazUsuario extends javax.swing.JPanel {
         
         
         //Control nombre
-        if(nombre.length() <= 3){
+        if(nombre.length() < 3){
             mensaje += "El nombre debe tener al menos 3 letras\n";
             errores++;
         }
         //Control apellido
-        if(apellido.length() <= 3){
+        if(apellido.length() < 3){
             mensaje += "El apellido debe tener al menos 3 letras\n";
             errores++;
         }
@@ -979,7 +979,7 @@ public class InterfazUsuario extends javax.swing.JPanel {
         }
         
         if(tipo != "Alumno"){
-            if(direccion.length()<= 3){
+            if(direccion.length() < 3){
                 mensaje += "La dirección debe tener al menos 3 caracteres\n";
                 errores++;
             }
@@ -999,6 +999,7 @@ public class InterfazUsuario extends javax.swing.JPanel {
             }
             cardMensajes.show(PanelMensaje, "PanelConfirmacion");
             TextoConfirmacion.setText("La persona "+nombre+" "+apellido+" fue guardada");
+            ComboBoxTipoMuestra.actionPerformed(evt);
         }else{
             cardMensajes.show(PanelMensaje, "PanelError");
             TextoError.setText(mensaje);
