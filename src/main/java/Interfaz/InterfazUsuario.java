@@ -3,8 +3,8 @@ import Logica.*;
 
 import java.awt.CardLayout;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 
 
 
@@ -192,7 +192,6 @@ public class InterfazUsuario extends javax.swing.JPanel {
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Muestra de personas");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -239,6 +238,8 @@ public class InterfazUsuario extends javax.swing.JPanel {
 
             }
         ));
+        TablaMuestra.setDragEnabled(true);
+        TablaMuestra.setRowSelectionAllowed(false);
         TablaMuestra.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(TablaMuestra);
 
@@ -341,7 +342,6 @@ public class InterfazUsuario extends javax.swing.JPanel {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Ingreso de personas");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -1071,11 +1071,16 @@ public class InterfazUsuario extends javax.swing.JPanel {
 
     private void BotonMuestraBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonMuestraBorrarActionPerformed
         Administracion admin = new Administracion();
+        
         String[] datosPersonaEliminar = {ComboBoxTipoMuestra.getSelectedItem().toString(),"","","",""};
 
         if(TablaMuestra.getSelectedRow()==-1){
             System.out.println("Falta seleccionar una persona");
         }else{
+            
+            
+            
+            
             for(int i=1; i<5; i++){
                 datosPersonaEliminar[i] = TablaMuestra.getModel().getValueAt(TablaMuestra.getSelectedRow(), i-1).toString();
             }
@@ -1084,7 +1089,13 @@ public class InterfazUsuario extends javax.swing.JPanel {
                 if(admin.compararPersona(datosPersonaEliminar)==null){
                     System.out.println("No se encontró la persona a eliminar");
                 }else{
-                    admin.eliminarPersona(admin.compararPersona(datosPersonaEliminar));
+                    String texto = "Desea eliminar a " + datosPersonaEliminar[1] + " " + datosPersonaEliminar[2] + "?";
+                    int error = JOptionPane.showConfirmDialog(null, texto, "Eliminar Persona", JOptionPane.YES_NO_OPTION);
+                    
+                    if(error == JOptionPane.YES_OPTION){
+                        admin.eliminarPersona(admin.compararPersona(datosPersonaEliminar));
+                    }
+
                 }
             } catch (Exception e) {
                 throw new RuntimeException(e);
