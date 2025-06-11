@@ -98,8 +98,6 @@ public class Administracion {
                     case "No Docente":
                         personas.add(new NoDocente(nombre, apellido, dato1, dato2));
                         break;
-                    default:
-                        System.out.println("No se pudo agregar a la persona: " + nombre + " " + apellido + ". Tipo no reconocido.");
                 }
             }
             eliminarDuplicados();
@@ -114,7 +112,6 @@ public class Administracion {
 
         for (Persona persona : personas) {
             String datosPersona = persona.getTipo() + "\t" + persona.getNombre() + "\t" + persona.getApellido() + "\t" + persona.getDato1() + "\t" + persona.getDato2();
-            System.out.println(datosPersona);
             stringPersonas.add(datosPersona);
         }
 

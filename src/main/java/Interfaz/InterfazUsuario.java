@@ -110,30 +110,30 @@ public class InterfazUsuario extends javax.swing.JPanel {
         jSplitPane1.setAutoscrolls(true);
         jSplitPane1.setEnabled(false);
 
-        PanelMenuOpciones.setBackground(new java.awt.Color(51, 0, 102));
+        PanelMenuOpciones.setBackground(new java.awt.Color(0, 204, 204));
         PanelMenuOpciones.setMinimumSize(new java.awt.Dimension(200, 110));
         PanelMenuOpciones.setPreferredSize(new java.awt.Dimension(200, 700));
 
         LogoPanel.setBackground(new java.awt.Color(255, 255, 0));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel9.setText("JARDIN \"SOL\"");
+        jLabel9.setIcon(new javax.swing.ImageIcon("B:\\Users\\Bautista\\Desktop\\CODE\\Java\\Practico de Maquina\\logo.jpg")); // NOI18N
 
         javax.swing.GroupLayout LogoPanelLayout = new javax.swing.GroupLayout(LogoPanel);
         LogoPanel.setLayout(LogoPanelLayout);
         LogoPanelLayout.setHorizontalGroup(
             LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogoPanelLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         LogoPanelLayout.setVerticalGroup(
             LogoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LogoPanelLayout.createSequentialGroup()
-                .addGap(77, 77, 77)
+                .addContainerGap()
                 .addComponent(jLabel9)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
 
         BotonMuestra.setText("Muestra");
@@ -173,7 +173,7 @@ public class InterfazUsuario extends javax.swing.JPanel {
                 .addComponent(BotonMuestra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BotonIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(PanelMenuOpciones);
@@ -184,7 +184,7 @@ public class InterfazUsuario extends javax.swing.JPanel {
 
         PanelMuestra.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(51, 0, 102));
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
         jPanel2.setPreferredSize(new java.awt.Dimension(771, 170));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -229,10 +229,7 @@ public class InterfazUsuario extends javax.swing.JPanel {
 
         TablaMuestra.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
 
@@ -334,7 +331,7 @@ public class InterfazUsuario extends javax.swing.JPanel {
 
         PanelIngreso.setBackground(new java.awt.Color(255, 255, 255));
 
-        TituloIngreso.setBackground(new java.awt.Color(51, 0, 102));
+        TituloIngreso.setBackground(new java.awt.Color(0, 204, 204));
         TituloIngreso.setPreferredSize(new java.awt.Dimension(771, 170));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -1000,6 +997,7 @@ public class InterfazUsuario extends javax.swing.JPanel {
             cardMensajes.show(PanelMensaje, "PanelConfirmacion");
             TextoConfirmacion.setText("La persona "+nombre+" "+apellido+" fue guardada");
             ComboBoxTipoMuestra.actionPerformed(evt);
+            CheckBoxFiltroMuestraActionPerformed(evt);
         }else{
             cardMensajes.show(PanelMensaje, "PanelError");
             TextoError.setText(mensaje);
@@ -1085,7 +1083,6 @@ public class InterfazUsuario extends javax.swing.JPanel {
                 datosPersonaEliminar[i] = TablaMuestra.getModel().getValueAt(TablaMuestra.getSelectedRow(), i-1).toString();
             }
             try {
-                System.out.println(datosPersonaEliminar[0] + " " + datosPersonaEliminar[1] + " " + datosPersonaEliminar[2] + " " + datosPersonaEliminar[3] + " " + datosPersonaEliminar[4]);
                 if(admin.compararPersona(datosPersonaEliminar)==null){
                     System.out.println("No se encontró la persona a eliminar");
                 }else{
