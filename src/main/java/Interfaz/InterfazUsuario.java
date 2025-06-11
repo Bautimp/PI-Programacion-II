@@ -15,6 +15,9 @@ public class InterfazUsuario extends javax.swing.JPanel {
     CardLayout cardMensajes;
     
     public InterfazUsuario(){
+        
+        JOptionPane.showMessageDialog(null,"Bienvenido al Jardín Maternal \"Sol\"!\nAprendamos Jugando…!");
+        
         initComponents();
         
         cardLayout = (CardLayout)(PanelTarjetas.getLayout());
